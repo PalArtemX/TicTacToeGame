@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F83894D72862542100594C18 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83894D62862542100594C18 /* Player.swift */; };
+		F83894D92862548A00594C18 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83894D82862548A00594C18 /* Move.swift */; };
 		F8FD821F2861E1620061353D /* TicTacToeGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FD821E2861E1620061353D /* TicTacToeGameApp.swift */; };
 		F8FD82232861E1630061353D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8FD82222861E1630061353D /* Assets.xcassets */; };
 		F8FD82262861E1630061353D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8FD82252861E1630061353D /* Preview Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		F83894D62862542100594C18 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		F83894D82862548A00594C18 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		F8FD821B2861E1620061353D /* TicTacToeGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToeGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8FD821E2861E1620061353D /* TicTacToeGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeGameApp.swift; sourceTree = "<group>"; };
 		F8FD82222861E1630061353D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				F8FD822F2861E5190061353D /* TicTacToe.swift */,
 				F83894D62862542100594C18 /* Player.swift */,
+				F83894D82862548A00594C18 /* Move.swift */,
 				F8FD823A28624AD90061353D /* GameArea.swift */,
 			);
 			path = Models;
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8FD82382861ED3A0061353D /* MainView.swift in Sources */,
+				F83894D92862548A00594C18 /* Move.swift in Sources */,
 				F8FD82362861EC670061353D /* XOGrid.swift in Sources */,
 				F8FD823B28624AD90061353D /* GameArea.swift in Sources */,
 				F8FD82302861E5190061353D /* TicTacToe.swift in Sources */,

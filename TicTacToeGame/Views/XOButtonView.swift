@@ -64,7 +64,7 @@ struct XOButtonView: View {
 struct XOButtonView_Previews: PreviewProvider {
     static var previews: some View {
         
-            XOButtonView(action: {})
+        XOButtonView(action: {})
         
     }
 }
