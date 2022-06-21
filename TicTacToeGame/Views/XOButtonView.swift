@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct XOButtonView: View {
-    let xo: XO
+    let xo: GameArea
     let action: () -> ()
     
     var systemName: String {
@@ -17,6 +17,8 @@ struct XOButtonView: View {
             return "multiply.circle"
         case .o:
             return "circle"
+        case .none:
+            return "circle.fill"
         }
     }
     
@@ -26,14 +28,20 @@ struct XOButtonView: View {
             return .yellow
         case .o:
             return .orange
+        case .none:
+            return .red
         }
     }
     
     var body: some View {
-        Image(systemName: systemName)
-            .symbolRenderingMode(.hierarchical)
-            .font(.system(size: 72))
-            .foregroundColor(color)
+        Button {
+            action()
+        } label: {
+            Image(systemName: systemName)
+                .symbolRenderingMode(.hierarchical)
+                .font(.system(size: 72))
+                .foregroundColor(color)
+        }
     }
 }
 
@@ -51,6 +59,7 @@ struct XOButtonView_Previews: PreviewProvider {
         VStack(spacing: 20.0) {
             XOButtonView(xo: .o, action: {})
             XOButtonView(xo: .x, action: {})
+            XOButtonView(xo: .none, action: {})
         }
     }
 }
