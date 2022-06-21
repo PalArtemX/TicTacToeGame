@@ -53,6 +53,9 @@
 			children = (
 				F8FD821E2861E1620061353D /* TicTacToeGameApp.swift */,
 				F8FD82202861E1620061353D /* ContentView.swift */,
+				F8FD822E2861E1C60061353D /* Views */,
+				F8FD822D2861E1BC0061353D /* ViewModels */,
+				F8FD822C2861E1B70061353D /* Models */,
 				F8FD82222861E1630061353D /* Assets.xcassets */,
 				F8FD82242861E1630061353D /* Preview Content */,
 			);
@@ -65,6 +68,27 @@
 				F8FD82252861E1630061353D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F8FD822C2861E1B70061353D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F8FD822D2861E1BC0061353D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F8FD822E2861E1C60061353D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
