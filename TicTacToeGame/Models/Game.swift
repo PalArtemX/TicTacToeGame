@@ -5,7 +5,7 @@
 //  Created by Artem Paliutin on 21/06/2022.
 //
 
-import Foundation
+import SwiftUI
 
 
 struct Game {
@@ -14,6 +14,10 @@ struct Game {
     
     var indicator: String {
         return player == .human ? "xmark" : "circle"
+    }
+    
+    var color: Color {
+        return player == .human ? .green : .red
     }
     
     static let grid: [[Int]] = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]

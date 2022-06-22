@@ -9,7 +9,6 @@ import SwiftUI
 
 struct XOGrid: View {
     @EnvironmentObject var ticTacToeVM: TicTacToeVM
-    @State private var grid: [[Int]] = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
     
     var body: some View {
         Grid(horizontalSpacing: 15, verticalSpacing: 15) {
@@ -17,7 +16,9 @@ struct XOGrid: View {
                 GridRow {
                     ForEach(rows, id: \.self) { index in
                         ZStack {
-                            XOButtonView(systemName: ticTacToeVM.moves[index]?.indicator ?? "info") {
+                            XOButtonView(
+                                systemName: ticTacToeVM.moves[index]?.indicator ?? "hand.tap",
+                                color: ticTacToeVM.moves[index]?.color ?? .primary.opacity(0.15)) {
                                 ticTacToeVM.processPlayerMove(for: index)
                             }
                         }
