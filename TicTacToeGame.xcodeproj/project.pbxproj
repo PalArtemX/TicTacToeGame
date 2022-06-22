@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F83894D72862542100594C18 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83894D62862542100594C18 /* Player.swift */; };
 		F83894D92862548A00594C18 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83894D82862548A00594C18 /* Move.swift */; };
+		F83894DB2863B80500594C18 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83894DA2863B80500594C18 /* Alert.swift */; };
 		F8FD821F2861E1620061353D /* TicTacToeGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FD821E2861E1620061353D /* TicTacToeGameApp.swift */; };
 		F8FD82232861E1630061353D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8FD82222861E1630061353D /* Assets.xcassets */; };
 		F8FD82262861E1630061353D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8FD82252861E1630061353D /* Preview Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		F83894D62862542100594C18 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		F83894D82862548A00594C18 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
+		F83894DA2863B80500594C18 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		F8FD821B2861E1620061353D /* TicTacToeGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToeGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8FD821E2861E1620061353D /* TicTacToeGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeGameApp.swift; sourceTree = "<group>"; };
 		F8FD82222861E1630061353D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				F8FD821E2861E1620061353D /* TicTacToeGameApp.swift */,
+				F83894DA2863B80500594C18 /* Alert.swift */,
 				F8FD822E2861E1C60061353D /* Views */,
 				F8FD822D2861E1BC0061353D /* ViewModels */,
 				F8FD822C2861E1B70061353D /* Models */,
@@ -190,6 +193,7 @@
 				F8FD82342861E70C0061353D /* XOButtonView.swift in Sources */,
 				F8FD821F2861E1620061353D /* TicTacToeGameApp.swift in Sources */,
 				F83894D72862542100594C18 /* Player.swift in Sources */,
+				F83894DB2863B80500594C18 /* Alert.swift in Sources */,
 				F8FD823F28624BAA0061353D /* TicTacToeVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
