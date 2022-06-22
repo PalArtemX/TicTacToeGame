@@ -13,6 +13,8 @@ class TicTacToeVM: ObservableObject {
     @Published var alertItem: AlertItem?
     
     
+    // MARK: - Functions
+    
     func processPlayerMove(for position: Int) {
         print("\(position)")
         if isSquareOccupied(in: moves, forIndex: position) {

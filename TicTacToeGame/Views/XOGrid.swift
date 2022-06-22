@@ -17,13 +17,9 @@ struct XOGrid: View {
                 GridRow {
                     ForEach(rows, id: \.self) { index in
                         ZStack {
-                            
-                            XOButtonView() {
+                            XOButtonView(systemName: ticTacToeVM.moves[index]?.indicator ?? "info") {
                                 ticTacToeVM.processPlayerMove(for: index)
                             }
-                            
-                            Image(systemName: ticTacToeVM.moves[index]?.indicator ?? "info")
-                                .font(.largeTitle)
                         }
                     }
                 }

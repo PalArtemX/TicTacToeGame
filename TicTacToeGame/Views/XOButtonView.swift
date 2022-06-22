@@ -8,42 +8,19 @@
 import SwiftUI
 
 struct XOButtonView: View {
-    //let xo: GameArea
+    let systemName: String
     let action: () -> ()
-    
-    //    var systemName: String {
-    //        switch xo {
-    //        case .x:
-    //            return "multiply.circle"
-    //        case .o:
-    //            return "circle"
-    //        case .none:
-    //            return "circle.fill"
-    //        }
-    //    }
-    //
-    //    var color: Color {
-    //        switch xo {
-    //        case .x:
-    //            return .yellow
-    //        case .o:
-    //            return .orange
-    //        case .none:
-    //            return .red
-    //        }
-    //    }
     
     var body: some View {
         ZStack {
             Circle()
-                .frame(width: 96)
-                .foregroundColor(.orange)
-            
+                .frame(width: 100)
+                .foregroundColor(.indigo)
             
             Button {
                 action()
             } label: {
-                Image(systemName: "xmark")
+                Image(systemName: systemName)
                     .symbolRenderingMode(.hierarchical)
                     .font(.system(size: 72))
                     .foregroundColor(.white)
@@ -64,7 +41,7 @@ struct XOButtonView: View {
 struct XOButtonView_Previews: PreviewProvider {
     static var previews: some View {
         
-        XOButtonView(action: {})
+        XOButtonView(systemName: "plus", action: {})
         
     }
 }
