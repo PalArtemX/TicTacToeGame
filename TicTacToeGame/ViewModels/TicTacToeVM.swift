@@ -8,7 +8,7 @@
 import SwiftUI
 
 class TicTacToeVM: ObservableObject {
-    @Published var moves: [Move?] = Array(repeating: nil, count: 9)
+    @Published var moves: [Game?] = Array(repeating: nil, count: 9)
     @Published var isGameBoardDisabled = false
     @Published var alertItem: AlertItem?
     
@@ -20,7 +20,7 @@ class TicTacToeVM: ObservableObject {
         if isSquareOccupied(in: moves, forIndex: position) {
             return
         }
-        moves[position] = Move(player: .human, boardIndex: position)
+        moves[position] = Game(player: .human, boardIndex: position)
         
         if checkWinCondition(for: .human, in: moves) {
             alertItem = AlertContext.humanWin
@@ -36,7 +36,7 @@ class TicTacToeVM: ObservableObject {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
             let computerPosition = determineComputerMovePosition(in: moves)
-            moves[computerPosition] = Move(player: .computer, boardIndex: computerPosition)
+            moves[computerPosition] = Game(player: .computer, boardIndex: computerPosition)
             isGameBoardDisabled = false
             
             if checkWinCondition(for: .computer, in: moves) {
@@ -52,7 +52,7 @@ class TicTacToeVM: ObservableObject {
     }
     
     
-    func isSquareOccupied(in moves: [Move?], forIndex index: Int) -> Bool {
+    func isSquareOccupied(in moves: [Game?], forIndex index: Int) -> Bool {
         return moves.contains(where: { $0?.boardIndex == index })
     }
     
@@ -61,7 +61,7 @@ class TicTacToeVM: ObservableObject {
     // If AI can't win, then block
     // If AI can't block, then take middle square
     // If AI can't take middle square, take random available square
-    func determineComputerMovePosition(in moves: [Move?]) -> Int {
+    func determineComputerMovePosition(in moves: [Game?]) -> Int {
         
         // If AI can win, then win
         let winPatterns: Set<Set<Int>> = [
@@ -112,7 +112,7 @@ class TicTacToeVM: ObservableObject {
     }
     
 
-    func checkWinCondition(for player: Player, in moves: [Move?]) -> Bool {
+    func checkWinCondition(for player: Player, in moves: [Game?]) -> Bool {
         let winPatterns: Set<Set<Int>> = [
             [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 9], [0, 4, 8], [2, 4, 6]
         ]
@@ -128,7 +128,7 @@ class TicTacToeVM: ObservableObject {
     }
     
     
-    func checkForDraw(in moves: [Move?]) -> Bool {
+    func checkForDraw(in moves: [Game?]) -> Bool {
         return moves.compactMap { $0 }.count == 9
     }
     

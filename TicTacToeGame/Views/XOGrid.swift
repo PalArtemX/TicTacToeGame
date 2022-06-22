@@ -13,7 +13,7 @@ struct XOGrid: View {
     
     var body: some View {
         Grid(horizontalSpacing: 15, verticalSpacing: 15) {
-            ForEach(grid, id: \.self) { rows in
+            ForEach(Game.grid, id: \.self) { rows in
                 GridRow {
                     ForEach(rows, id: \.self) { index in
                         ZStack {
