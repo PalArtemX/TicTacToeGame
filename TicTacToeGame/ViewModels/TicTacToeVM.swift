@@ -13,10 +13,10 @@ class TicTacToeVM: ObservableObject {
     @Published var alertItem: AlertItem?
     @Published var isShowHeader = false
     
+    
     // MARK: - Functions
     // MARK: processPlayerMove
     func processPlayerMove(for position: Int) {
-        print("\(position)")
         if isSquareOccupied(in: moves, forIndex: position) {
             isShowHeader = true
             return
@@ -54,12 +54,16 @@ class TicTacToeVM: ObservableObject {
         }
     }
     
+    // MARK: resetGame
+    func resetGame() {
+        isShowHeader = false
+        moves = Array(repeating: nil, count: 9)
+    }
     
     // MARK: isSquareOccupied
     private func isSquareOccupied(in moves: [Game?], forIndex index: Int) -> Bool {
         return moves.contains(where: { $0?.boardIndex == index })
     }
-    
     
     // MARK: determineComputerMovePosition
     // If AI can win, then win
@@ -116,7 +120,6 @@ class TicTacToeVM: ObservableObject {
         return movePosition
     }
     
-    
     // MARK: checkWinCondition
     private func checkWinCondition(for player: Player, in moves: [Game?]) -> Bool {
         let winPatterns: Set<Set<Int>> = [
@@ -133,16 +136,9 @@ class TicTacToeVM: ObservableObject {
         return false
     }
     
-    
     // MARK: checkForDraw
     private func checkForDraw(in moves: [Game?]) -> Bool {
         return moves.compactMap { $0 }.count == 9
     }
     
-    
-    // MARK: resetGame
-    func resetGame() {
-        isShowHeader = false
-        moves = Array(repeating: nil, count: 9)
-    }
 }

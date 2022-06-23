@@ -19,17 +19,14 @@ struct HeaderView: View {
                     Text("Tic")
                         .foregroundColor(.blue)
                         .matchedGeometryEffect(id: "1", in: namespace)
-                        
                     Spacer()
                     Text("Tac")
                         .foregroundColor(.yellow)
                         .matchedGeometryEffect(id: "2", in: namespace)
-                        
                     Spacer()
                     Text("Toe")
                         .foregroundColor(.red)
                         .matchedGeometryEffect(id: "3", in: namespace)
-                        
                     Spacer()
                 }
             } else {
@@ -43,7 +40,6 @@ struct HeaderView: View {
                         .foregroundColor(.yellow)
                         .matchedGeometryEffect(id: "2", in: namespace)
                     Spacer()
-                    
                     Text("Toe")
                         .foregroundColor(.red)
                         .matchedGeometryEffect(id: "3", in: namespace)
@@ -56,6 +52,15 @@ struct HeaderView: View {
         .animation(.easeInOut(duration: 0.5), value: ticTacToeVM.isShowHeader)
     }
 }
+
+
+
+
+
+
+
+
+
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {

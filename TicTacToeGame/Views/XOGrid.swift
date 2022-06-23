@@ -13,17 +13,20 @@ struct XOGrid: View {
     var body: some View {
         Grid(horizontalSpacing: 15, verticalSpacing: 15) {
             ForEach(Game.grid, id: \.self) { rows in
+                
                 GridRow {
-                    ForEach(rows, id: \.self) { index in
-                        ZStack {
-                            XOButtonView(
-                                systemName: ticTacToeVM.moves[index]?.indicator ?? "hand.tap",
-                                color: ticTacToeVM.moves[index]?.color ?? .yellow.opacity(0.15)) {
-                                ticTacToeVM.processPlayerMove(for: index)
+                    ForEach(rows, id: \.self) { i in
+                        XOButtonView(
+                            systemName: ticTacToeVM.moves[i]?.indicator ?? "hand.tap",
+                            color: ticTacToeVM.moves[i]?.color ?? .yellow.opacity(0.15)) {
+                                
+                                ticTacToeVM.processPlayerMove(for: i)
+                                print("🔘 Tap button for index >> |\(i)|")
                             }
-                        }
+                        
                     }
                 }
+                
             }
         }
         .disabled(ticTacToeVM.isGameBoardDisabled)
@@ -31,11 +34,13 @@ struct XOGrid: View {
             Alert(
                 title: alertItem.title,
                 message: alertItem.message,
-                dismissButton: .destructive(alertItem.buttonTitle, action: { ticTacToeVM.resetGame() }))
+                dismissButton: .destructive(alertItem.buttonTitle) {
+                    ticTacToeVM.resetGame()
+                }
+            )
         }
     }
     
-
 }
 
 

@@ -18,7 +18,7 @@ struct XOButtonView: View {
                 .frame(width: 100)
                 .foregroundColor(color)
                 .shadow(radius: 5)
-            
+
             Button {
                 action()
             } label: {
@@ -27,7 +27,6 @@ struct XOButtonView: View {
                     .font(.system(size: 72))
                     .foregroundColor(.white)
             }
-            
         }
     }
 }
@@ -44,9 +43,9 @@ struct XOButtonView: View {
 struct XOButtonView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            XOButtonView(systemName: "xmark", color: .green, action: {})
+            XOButtonView(systemName: "xmark", color: .blue, action: {})
             XOButtonView(systemName: "circle", color: .red, action: {})
-            XOButtonView(systemName: "hand.tap", color: .primary.opacity(0.2), action: {})
+            XOButtonView(systemName: "hand.tap", color: .yellow.opacity(0.2), action: {})
         }
         
     }
