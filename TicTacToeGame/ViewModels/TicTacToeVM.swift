@@ -8,27 +8,30 @@
 import SwiftUI
 
 class TicTacToeVM: ObservableObject {
-    @Published var moves: [Game?] = Array(repeating: nil, count: 9)
-    @Published var isGameBoardDisabled = false
+    @Published private(set) var moves: [Game?] = Array(repeating: nil, count: 9)
+    @Published private(set) var isGameBoardDisabled = false
     @Published var alertItem: AlertItem?
-    
+    @Published var isShowHeader = false
     
     // MARK: - Functions
-    
+    // MARK: processPlayerMove
     func processPlayerMove(for position: Int) {
         print("\(position)")
         if isSquareOccupied(in: moves, forIndex: position) {
+            isShowHeader = true
             return
         }
         moves[position] = Game(player: .human, boardIndex: position)
         
         if checkWinCondition(for: .human, in: moves) {
             alertItem = AlertContext.humanWin
+            isShowHeader = true
             return
         }
         
         if checkForDraw(in: moves) {
             alertItem = AlertContext.draw
+            isShowHeader = true
             return
         }
         
@@ -52,16 +55,18 @@ class TicTacToeVM: ObservableObject {
     }
     
     
-    func isSquareOccupied(in moves: [Game?], forIndex index: Int) -> Bool {
+    // MARK: isSquareOccupied
+    private func isSquareOccupied(in moves: [Game?], forIndex index: Int) -> Bool {
         return moves.contains(where: { $0?.boardIndex == index })
     }
     
     
+    // MARK: determineComputerMovePosition
     // If AI can win, then win
     // If AI can't win, then block
     // If AI can't block, then take middle square
     // If AI can't take middle square, take random available square
-    func determineComputerMovePosition(in moves: [Game?]) -> Int {
+    private func determineComputerMovePosition(in moves: [Game?]) -> Int {
         
         // If AI can win, then win
         let winPatterns: Set<Set<Int>> = [
@@ -107,12 +112,13 @@ class TicTacToeVM: ObservableObject {
         while isSquareOccupied(in: moves, forIndex: movePosition) {
             movePosition = Int.random(in: 0..<9)
         }
-        
+        isShowHeader = true
         return movePosition
     }
     
-
-    func checkWinCondition(for player: Player, in moves: [Game?]) -> Bool {
+    
+    // MARK: checkWinCondition
+    private func checkWinCondition(for player: Player, in moves: [Game?]) -> Bool {
         let winPatterns: Set<Set<Int>> = [
             [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 9], [0, 4, 8], [2, 4, 6]
         ]
@@ -123,17 +129,20 @@ class TicTacToeVM: ObservableObject {
         for pattern in winPatterns where pattern.isSubset(of: playerPositions) {
             return true
         }
-        
+        isShowHeader = true
         return false
     }
     
     
-    func checkForDraw(in moves: [Game?]) -> Bool {
+    // MARK: checkForDraw
+    private func checkForDraw(in moves: [Game?]) -> Bool {
         return moves.compactMap { $0 }.count == 9
     }
     
     
+    // MARK: resetGame
     func resetGame() {
+        isShowHeader = false
         moves = Array(repeating: nil, count: 9)
     }
 }

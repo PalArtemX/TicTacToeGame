@@ -8,10 +8,17 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var ticTacToeVM: TicTacToeVM
+    
     var body: some View {
         VStack {
+            HeaderView()
+            Spacer()
             XOGrid()
+            Spacer()
         }
+        .padding()
+        //.animation(.default, value: ticTacToeVM.isShowHeader)
     }
 }
 

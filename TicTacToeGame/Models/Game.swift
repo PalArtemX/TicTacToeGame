@@ -17,7 +17,7 @@ struct Game {
     }
     
     var color: Color {
-        return player == .human ? .green : .red
+        return player == .human ? .blue : .red
     }
     
     static let grid: [[Int]] = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]

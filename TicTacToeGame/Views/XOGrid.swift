@@ -18,7 +18,7 @@ struct XOGrid: View {
                         ZStack {
                             XOButtonView(
                                 systemName: ticTacToeVM.moves[index]?.indicator ?? "hand.tap",
-                                color: ticTacToeVM.moves[index]?.color ?? .primary.opacity(0.15)) {
+                                color: ticTacToeVM.moves[index]?.color ?? .yellow.opacity(0.15)) {
                                 ticTacToeVM.processPlayerMove(for: index)
                             }
                         }
